@@ -1,0 +1,31 @@
+#BestiaryHeader button {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+#BestiaryHeader button:hover {
+  cursor: pointer;
+  background: darkgray;
+}
+
+#BestiaryTitle {
+  margin: 10px auto
+}
+
+#Bestiary-List {
+  flex: 3;
+  background: gray;
+  width: 100%;
+}
+#Bestiary-List h3 {
+  color: white;
+}
+
+#User-Collections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+

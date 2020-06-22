@@ -1,0 +1,11 @@
+#Home-Content section:nth-child(even) {
+  background: lightgray;
+}
+
+#Home-Content section {
+  margin: 10px auto;
+  padding: 20px;
+}
+#Home-Content section h2 {
+  margin-bottom: 20px;
+}

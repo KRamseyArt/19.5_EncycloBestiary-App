@@ -1,0 +1,26 @@
+.Bestiary-Card {
+  width: 150px;
+  text-align: center;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+.Bestiary-Card p {
+  margin: 10px 0; 
+}
+.Bestiary-Settings {
+  display: flex;
+  padding: 0;
+}
+.Bestiary-Settings li {
+  list-style-type: none;
+}
+.Bestiary-Settings button {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 5px;
+}

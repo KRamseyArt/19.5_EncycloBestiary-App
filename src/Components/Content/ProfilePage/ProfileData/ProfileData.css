@@ -1,0 +1,24 @@
+#Profile-Data {
+  flex: 1;
+  padding: 10px;
+}
+
+#Avatar {
+  margin: 10px auto;
+  border-radius: 15px;
+}
+
+#Profile-Nav {
+  padding: 0;
+}
+#Profile-Nav li {
+  list-style-type: none;
+  margin: 10px auto;
+}
+#Profile-Nav li button {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}

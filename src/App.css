@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.App {
+  height: 100%;
+  margin: 0;
+}

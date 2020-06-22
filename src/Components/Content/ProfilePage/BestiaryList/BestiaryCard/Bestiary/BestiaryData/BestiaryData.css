@@ -1,0 +1,19 @@
+#Bestiary-Data {
+  flex: 1;
+  padding: 10px;
+}
+
+#Bestiary-Nav {
+  padding: 0;
+}
+#Bestiary-Nav li {
+  list-style-type: none;
+  margin: 10px auto;
+}
+#Bestiary-Nav li button {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}

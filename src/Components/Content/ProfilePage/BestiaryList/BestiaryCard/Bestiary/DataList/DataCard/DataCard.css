@@ -1,0 +1,25 @@
+.DataCard {
+  background: lightgray;
+  margin: 2px auto;
+  list-style-type: none;
+}
+
+.DataInfo {
+  display: flex;
+  padding: 5px;
+}
+.DataName {
+  margin-left: 5px;
+}
+.deleteData-button {
+  margin-right: 5px;
+}
+
+.DataDescription {
+  background: white;
+  padding: 10px;
+}
+
+.DataDescription p {
+  text-align: left;
+}

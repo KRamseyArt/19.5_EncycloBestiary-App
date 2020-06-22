@@ -1,0 +1,24 @@
+#DataHeader {
+  display: flex;
+  margin: 10px auto;
+  justify-content: center;
+}
+
+#DataHeader button {
+  align-self: center;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 5px;
+}
+#DataHeader button:hover {
+  cursor: pointer;
+  background: darkgray;
+}
+
+#DataTitle {
+  align-self:center;
+  margin-right: 5px;
+}

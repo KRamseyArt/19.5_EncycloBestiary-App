@@ -1,0 +1,26 @@
+#LogIn-Form {
+  margin: 0 20px;
+}
+
+fieldset {
+  border-radius: 10px;
+}
+
+legend {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.account-input {
+  border-radius: 20px;
+  border: 2px solid lightgray;
+  padding: 5px 20px;
+}
+
+#login-button {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+}

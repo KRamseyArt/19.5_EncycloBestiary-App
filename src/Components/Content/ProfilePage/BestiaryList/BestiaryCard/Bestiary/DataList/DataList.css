@@ -1,0 +1,16 @@
+#Data-List {
+  flex: 3;
+  background: gray;
+  width: 100%;
+}
+#Data-List h3 {
+  color: white;
+}
+
+#Data-Collections {
+  display: block;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+}
+

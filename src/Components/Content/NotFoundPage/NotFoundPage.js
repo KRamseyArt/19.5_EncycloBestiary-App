@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export class ShortText extends Component {
+export class NotFoundPage extends Component {
   render() {
     return (
       <div>
-        Short Text
+        Page not found
       </div>
     )
   }
 }
 
-export default ShortText
+export default NotFoundPage

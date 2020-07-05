@@ -2,27 +2,60 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import './AddBestiaryForm.css'
+import Context from '../../../../../Context'
 
 export class AddBestiaryForm extends Component {
-  state = {
-    dataFields: [1,2,3,4,5]
-  }
-  
-  addDataField(e) {
-    e.preventDefault();
+  static contextType = Context;
 
-    console.log(e.target);
+  constructor(props){
+    super(props);
+    this.state = {
+      user_id:{
+        value: ""
+      },
+      bestiary_name: {
+        value: "",
+        touched: false
+      },
+      bestiary_description: {
+        value: "",
+        touched: false
+      }
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const { bestiary_name, bestiary_description } = this.state;
+    const user_id = 1;
+
+    const newBestiary = { user_id, bestiary_name, bestiary_description };
+    this.context.addBestiary(newBestiary);
+  }
+
+  updateBestiaryName(name){
+    this.setState({
+      bestiary_name: {
+        value: name,
+        touched: true
+      }
+    });
+  }
+  updateBestiaryDescription(description){
+    this.setState({
+      bestiary_description: {
+        value: description,
+        touched: true
+      }
+    })
   }
 
   render() {
-    const dataFields = this.state.dataFields.map(dataField => {
-      return (
-        <p>{dataField}</p>
-      )
-    })
-
     return (
-      <form id="AddBestiary-Form">
+      <form
+        id="AddBestiary-Form"
+        onSubmit={e => this.handleSubmit(e)}
+      >
         <fieldset>
           <legend>Add Bestiary</legend>
           <p>Provide a Name and short Description for this Bestiary:</p>
@@ -46,34 +79,6 @@ export class AddBestiaryForm extends Component {
           
           <br/>
           <br/>
-{/*           
-          <form
-            onSubmit={this.addDataField}
-            >
-              <label htmlFor="dataField">Add New Data Field:</label>
-              <br/>
-              <select id="dataField" name="dataField">
-                <option value="short-text">Short Text</option>
-                <option value="long-text">Long Text</option>
-                <option value="number-solid">Number (Solid)</option>
-                <option value="number-range">Number (Range)</option>
-                <option value="selection">Selection</option>
-              </select>
-              <input
-                type="submit"
-                id="addField-button"
-                onClick={this.addDataField}
-                value="+ Field"
-              />
-          </form>
-
-          <br/>
-
-          <fieldset>
-            <legend>Data Fields</legend>
-            {dataFields}
-          </fieldset>
-          <br/> */}
 
           <Link
             to={"/users/:userId"}

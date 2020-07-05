@@ -1,20 +1,14 @@
 import React from 'react';
 
 const Context = React.createContext({
+  user: {},
   bestiaries: [],
   data: [],
-  addBestiary: () => {
-
-  },
-  deleteBestiary: () => {
-
-  },
-  addData: () => {
-
-  },
-  deleteData: () => {
-
-  }
+  activateUser: () => {},
+  addBestiary: () => {},
+  deleteBestiary: () => {},
+  addData: () => {},
+  deleteData: () => {}
 })
 
 export default Context;

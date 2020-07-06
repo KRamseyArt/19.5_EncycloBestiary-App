@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import './BestiaryData.css'
+import Context from '../../../../../../../Context';
 
 export class BestiaryData extends Component {
+  static contextType = Context;
+  
   render() {
+    console.log(this.context)
     return (
       <nav id="Bestiary-Data">
         <h3 id="Bestiary-Name">Bestiary 1</h3>

@@ -20,6 +20,7 @@ export class Content extends Component {
   state = {
     user: {},
     bestiaries: [],
+    activeBestiaryID: null,
     data: [],
   }
 
@@ -53,6 +54,11 @@ export class Content extends Component {
         b.id !== bestiaryId)
     })
   }
+  setActiveBestiaryID = (bestiaryId) => {
+    this.setState({
+      activeBestiaryID: bestiaryId
+    })
+  }
 
   addData = (data) => {
     this.setState({
@@ -74,10 +80,12 @@ export class Content extends Component {
     const contextValue = {
       user: state.user,
       bestiaries: state.bestiaries,
+      activeBestiaryID: state.activeBestiary,
       data: state.data,
       activateUser: this.activateUser,
       addBestiary: this.addBestiary,
       deleteBestiary: this.deleteBestiary,
+      setActiveBestiaryID: this.setActiveBestiaryID,
       addData: this.addData,
       deleteData: this.deleteData
     }

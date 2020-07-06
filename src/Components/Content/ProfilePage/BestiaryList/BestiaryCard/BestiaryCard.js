@@ -19,7 +19,7 @@ export class BestiaryFolder extends Component {
           <li>
             <Link
               to={`/users/:userId/bestiaries/${bestiary.id}`}
-              onClick={this.context.setActiveBestiaryID(bestiary.id)}
+              onClick={() => this.context.setActiveBestiaryID(bestiary.id)}
             >
             <button>Edit</button>
             </Link>

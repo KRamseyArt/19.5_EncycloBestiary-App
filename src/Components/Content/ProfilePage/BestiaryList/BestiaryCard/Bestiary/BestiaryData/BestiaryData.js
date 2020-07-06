@@ -7,8 +7,19 @@ import Context from '../../../../../../../Context';
 export class BestiaryData extends Component {
   static contextType = Context;
   
+  state = {
+    activeBestiaryID: null,
+  }
+
+  componentDidMount(){
+    this.setState({
+      activeBestiaryID: this.context.activeBestiaryID
+    })
+  }
+
   render() {
-    console.log(this.context)
+    console.log(this.state)
+    
     return (
       <nav id="Bestiary-Data">
         <h3 id="Bestiary-Name">Bestiary 1</h3>

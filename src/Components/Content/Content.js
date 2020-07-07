@@ -76,6 +76,7 @@ export class Content extends Component {
   render() {
     const state = this.state;
     console.log(this.state);
+    console.log(this.context);
     
     const contextValue = {
       user: state.user,

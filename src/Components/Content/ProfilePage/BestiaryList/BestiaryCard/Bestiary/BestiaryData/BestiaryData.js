@@ -6,15 +6,9 @@ import Context from '../../../../../../../Context';
 
 export class BestiaryData extends Component {
   static contextType = Context;
-  
+
   state = {
     activeBestiaryID: null,
-  }
-
-  componentDidMount(){
-    this.setState({
-      activeBestiaryID: this.context.activeBestiaryID
-    })
   }
 
   render() {

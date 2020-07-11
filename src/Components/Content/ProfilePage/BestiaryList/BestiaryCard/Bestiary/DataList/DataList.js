@@ -6,19 +6,21 @@ import DataListHeader from './DataListHeader/DataListHeader';
 
 export class DataList extends Component {
   render() {
+    const bestiaryData = this.props.bestiaryData;
     return (
       <div id="Data-List">
-        <DataListHeader />
+        <DataListHeader/>
 
         <ul id="Data-Collections">
-          <DataCard />
-          <DataCard />
-          <DataCard />
-          <DataCard />
-          <DataCard />
-          <DataCard />
-          <DataCard />
-          <DataCard />
+          {bestiaryData.map(data => {
+            return (
+              <DataCard
+                id={data.id}
+                key={data.id}
+                data={data}
+              />
+            )
+          })}
         </ul>
       </div>
     )

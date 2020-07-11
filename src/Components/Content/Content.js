@@ -4,6 +4,8 @@ import {Switch, Route } from 'react-router-dom';
 import STORE from '../../STORE';
 
 import './Content.css';
+import Config from '../../Config';
+
 import Context from '../../Context';
 import NavBar from './NavBar/NavBar';
 import HomePage from './HomePage/HomePage';
@@ -15,44 +17,91 @@ import AddDataForm from './ProfilePage/BestiaryList/BestiaryCard/Bestiary/DataLi
 import AddBestiaryForm from './ProfilePage/BestiaryList/AddBestiaryForm/AddBestiaryForm';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 
+import AuthApiService from '../../Services/auth-api-service'
+import IdleService from '../../Services/idle-service'
+import TokenService from '../../Services/token-service'
+
 
 export class Content extends Component {
   state = {
+    userToken: "",
     user: {},
     bestiaries: [],
     activeBestiaryID: null,
     data: [],
+    hasError: false
   }
 
-  componentDidMount() {
-    const store = STORE;
+  static getDerivedStateFromError(error) {
+    console.error(error)
+    return { hasError: true }
+  }
 
+  componentDidMount(){
+    IdleService.setIdleCallback(this.logoutFromIdle)
+
+    if (TokenService.hasAuthToken()){
+      IdleService.registerIdleTimerResets()
+    }
+
+    // TokenService.queueCallbackBeforeExpiry(() => {
+    //   AuthApiService.postRefreshToken()
+    // })
+  }
+
+  componentWillUnmount() {
+    IdleService.unRegisterIdleResets()
+    TokenService.clearCallbackBeforeExpiry()
+  }
+
+  logoutFromIdle = () => {
+    TokenService.clearAuthToken()
+    TokenService.clearCallbackBeforeExpiry()
+    IdleService.unRegisterIdleResets()
+
+    this.forceUpdate()
+  }
+
+  setUser = (user) => {
     this.setState({
-      user: store.users[0],
-      bestiaries: store.bestiaries.filter(b =>
-        b.user_id === store.users[0].id),
-      data: store.bestiary_data.filter(d =>
-        d.user_id === store.users[0].id)
+      userToken: user ? TokenService.getAuthToken() : TokenService.clearAuthToken(),
+      user: user
     })
   }
-
-  activateUser = (user) => {
-    this.setState({
-      user
-    })
+  addUser = (user) => {
+    console.log(user);
   }
 
+  setBestiaries = (bestiaries) => {
+    this.setState({
+      bestiaries
+    })
+  }
   addBestiary = (bestiary) => {
+    console.log(bestiary)
     this.setState({
       bestiaries: [...this.state.bestiaries, bestiary]
     })
   }
-
   deleteBestiary = (bestiaryId) => {
-    this.setState({
-      bestiaries: this.state.bestiaries.filter(b =>
-        b.id !== bestiaryId)
+    fetch (`${Config.API_ENDPOINT}/bestiaries/${bestiaryId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
     })
+      .then(res => {
+        this.setState({
+          bestiaries: this.state.bestiaries.filter(b =>
+            b.id !== bestiaryId)
+        })
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    
+    
   }
   setActiveBestiaryID = (bestiaryId) => {
     this.setState({
@@ -60,12 +109,17 @@ export class Content extends Component {
     })
   }
 
+  setData = (data) => {
+    this.setState({
+      data
+    })
+  }
   addData = (data) => {
+    console.log(data);
     this.setState({
       data: [...this.state.data, data]
     })
   }
-
   deleteData = (dataId) => {
     this.setState({
       data: this.state.data.filter(d =>
@@ -79,14 +133,18 @@ export class Content extends Component {
     console.log(this.context);
     
     const contextValue = {
+      userToken: state.userToken,
       user: state.user,
       bestiaries: state.bestiaries,
-      activeBestiaryID: state.activeBestiary,
+      activeBestiaryID: state.activeBestiaryID,
       data: state.data,
-      activateUser: this.activateUser,
+      setUser: this.setUser,
+      addUser: this.addUser,
+      setBestiaries: this.setBestiaries,
       addBestiary: this.addBestiary,
       deleteBestiary: this.deleteBestiary,
       setActiveBestiaryID: this.setActiveBestiaryID,
+      setData: this.setData,
       addData: this.addData,
       deleteData: this.deleteData
     }

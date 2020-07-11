@@ -15,11 +15,11 @@ export class HomePage extends Component {
         </section>
         <section>
           <h2>Customize Your Catalogs</h2>
-          <p>Use our custom field declarations to expand the depth of your Bestiaries! Create a catalog for a world map, charting out various regions and biomes within your world. Then link to that very same Catalog in your Creature Bestiary, pinpointing which regions your monstrosities are local to!</p>
+          <p>Create folders to store related and relevant data, keeping all your ideas grouped together!</p>
         </section>
         <section>
-          <h2>Header3</h2>
-          <p>Info</p>
+          <h2>Test it out!</h2>
+          <p>Feel free to try it out before you sign up for your own account! Visit the login page and enter:</p><br/><p> Username: 'Demo'</p><p>Password: 'Testing123!'</p>
         </section>
       </div>
     )

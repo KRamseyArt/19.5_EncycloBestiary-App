@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './BestiaryCard.css'
 import Context from '../../../../../Context';
+import TokenService from '../../../../../Services/token-service';
 
 export class BestiaryFolder extends Component {
   static contextType = Context;
@@ -18,15 +19,24 @@ export class BestiaryFolder extends Component {
         <ul className="Bestiary-Settings">
           <li>
             <Link
-              to={`/users/:userId/bestiaries/${bestiary.id}`}
+              to={`/users/${this.context.user.id}/bestiaries/${bestiary.id}`}
               onClick={() => this.context.setActiveBestiaryID(bestiary.id)}
             >
-            <button>Edit</button>
+              <button
+                className="btn"
+              >
+                Edit
+              </button>
             </Link>
             
           </li>
           <li>
-            <button>Delete</button>
+            <button
+              className="btn"
+              onClick={() => this.context.deleteBestiary(bestiary.id)}
+            >
+              Delete
+            </button>
           </li>
         </ul>
       </div>

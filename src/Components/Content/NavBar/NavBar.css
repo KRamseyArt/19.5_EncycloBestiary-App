@@ -6,17 +6,6 @@
   position: -webkit-sticky;
   top: 0;
 }
-#NavBar button {
-  background: black;
-  border: none;
-  padding: 5px 15px;
-  color: white;
-  border-radius: 5px;
-}
-#NavBar button:hover {
-  cursor: pointer;
-  background: gray;
-}
 
 #Account-Access {
   margin-left: 20px;

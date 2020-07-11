@@ -8,3 +8,20 @@
   height: 100%;
   margin: 0;
 }
+
+.btn {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 0 5px;
+}
+.btn:hover {
+  cursor: pointer;
+  background: gray;
+}
+.btn:disabled {
+  cursor: default;
+  background: gray;
+}

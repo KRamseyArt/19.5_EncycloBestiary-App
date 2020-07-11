@@ -12,17 +12,20 @@ export class BestiaryData extends Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.props)
+    const bestiary = this.context.bestiaries.filter(b => b.id === this.props.activeBestiaryID)[0]
+      || {bestiary_name: "Reload Placeholder", bestiary_description: "Reload Placeholder"}
+    console.log(bestiary)
     
     return (
       <nav id="Bestiary-Data">
-        <h3 id="Bestiary-Name">Bestiary 1</h3>
+        <h3 id="Bestiary-Name">{bestiary.bestiary_name}</h3>
         
-        <p id="Bestiary-Description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae nam dicta harum dignissimos repellendus minus maiores alias illum aspernatur corrupti.</p>
+        <p id="Bestiary-Description">{bestiary.bestiary_description}</p>
         <ul id="Bestiary-Nav">
           <li>
             <Link
-              to={"/users/:userId"}
+              to={`/users/${this.context.user.id}`}
             >
               <button>
                 Back

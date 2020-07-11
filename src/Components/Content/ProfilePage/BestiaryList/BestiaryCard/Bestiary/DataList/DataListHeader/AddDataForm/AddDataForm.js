@@ -2,45 +2,189 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import './AddDataForm.css'
+import Config from '../../../../../../../../../Config'
+
+import Context from '../../../../../../../../../Context'
+import ValidationError from '../../../../../../../ValidationError/ValidationError'
+import TokenService from '../../../../../../../../../Services/token-service'
 
 export class AddDataForm extends Component {
+  static contextType = Context;
+
+  constructor(props){
+    super(props);
+    this.state ={
+      data_name: {
+        value: "",
+        touched: false
+      },
+      data_description: {
+        value: "",
+        touched: false
+      }
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const { data_name, data_description } = this.state;
+
+    const newData = {
+      bestiary_id: this.context.activeBestiaryID,
+      data_name: data_name.value,
+      data_description: data_description.value
+    };
+
+    const ENDPOINT = Config.API_ENDPOINT;
+    fetch(`${ENDPOINT}/data`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(newData),
+    })
+      .then(res => {
+        if (!res.ok){
+          return res.json().then(e => Promise.reject(e))
+        }
+
+        return res.json()
+      })
+      .then(res => {
+        console.log(res);
+        this.context.addData(res);
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
+  handleValidDataSubmit = () => {
+    const { history } = this.props
+    history.push(`users/${this.context.user.id}/bestiaries/${this.context.activeBestiaryID}`)
+  }
+
+  updateDataName(name){
+    this.setState({
+      data_name: {
+        value: name,
+        touched: true
+      }
+    });
+  }
+  updateDataDescription(description){
+    this.setState({
+      data_description: {
+        value: description,
+        touched: true
+      }
+    });
+  }
+
+  validateDataName(){
+    const dataName = this.state.data_name.value.trim();
+    const minLength = 5;
+
+    if (dataName.length === 0){
+      return 'Data Name is required';
+    } else if (dataName.length < minLength){
+      return `Data Name must be at least ${minLength} characters long`
+    }
+  }
+  validateDataDescription(){
+    const dataDescription = this.state.data_description.value.trim();
+    const minLength = 10;
+
+    if (dataDescription.length === 0){
+      return 'Description is required';
+    } else if (dataDescription.length < minLength){
+      return `Description must be at least ${minLength} characters in length`
+    }
+  }
+
   render() {
+    console.log(this.context);
+    const thisBestiary = this.context.bestiaries.filter(b =>{
+      return b.id === this.context.activeBestiaryID;
+    })[0] || "";
+    console.log(thisBestiary)
+
+    const nameError = this.validateDataName();
+    const descriptionError = this.validateDataDescription();
+
     return (
-      <form id="AddData-Form">
+      <form
+        id="AddData-Form"
+        onSubmit={e => this.handleSubmit(e)}
+      >
         <fieldset>
           <legend>Add Data</legend>
-          <p>Submit Data to fill up your Bestiary</p>
+          <p>Submit Data to fill up {thisBestiary.bestiary_name}</p>
 
           <br/>
 
-          <label htmlFor="data-title">Title:</label>
-          <br/>
+          <label htmlFor="data-title">Data Title *</label>
+          {this.state.data_name.touched && (
+            <ValidationError message={nameError}>
+              <div>
+                Data Title meets requirements
+              </div>
+            </ValidationError>
+          )}
           <input
             type="text"
+            className="data-title"
             name="data-title"
             id="data-title"
+            aria-required="true"
+            aria-describedby="newDataTitle"
+            aria-label="DataTitle"
+            onChange={e => this.updateDataName(e.target.value)}
           />
-          <br/>
-          <label htmlFor="data-desc">Description:</label>
-          <br/>
+
+          <label htmlFor="data-desc">Description *</label>
+          {this.state.data_description.touched && (
+            <ValidationError message={descriptionError}>
+              <div>
+                Data Description meets requirements
+              </div>
+            </ValidationError>
+          )}
           <textarea
+            type="text"
+            className="data-desc"
             name="data-desc"
             id="data-desc"
+            aria-required="true"
+            aria-label="Description"
+            aria-describedby="newDataDescription"
+            onChange={e => this.updateDataDescription(e.target.value)}
           />
           
           <br/>
-          <br/>
-          
-          <Link
-            to={"/users/:userId/bestiaries/:bestiaryId"}
-          >
-            <input
+          <div className="navButtons">
+            <Link
+              to={`/users/${this.context.user.id}/bestiaries/${thisBestiary.id}`}
+            >
+              <button
+                className="btn"
+              >
+                Back
+              </button>
+            </Link>
+            <button
               type="submit"
-              value="Submit"
-              id="addData-button"
-            />
-          </Link>
-          
+              className="btn"
+              disabled={
+                this.validateDataName() ||
+                this.validateDataDescription()
+              }
+            >
+              Submit
+            </button>
+          </div>
         </fieldset>
       </form>
     )

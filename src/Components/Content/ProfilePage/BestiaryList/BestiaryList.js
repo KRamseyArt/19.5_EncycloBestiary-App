@@ -16,7 +16,7 @@ export class BestiaryList extends Component {
         <section id="BestiaryHeader">
           <h3 id="BestiaryTitle">Bestiaries:</h3>
           <Link
-            to={"/users/:userId/add-bestiary"}
+            to={`/users/${this.context.user.id}/add-bestiary`}
           >
             <button id="addNewBestiary-button">Add New</button>
           </Link>

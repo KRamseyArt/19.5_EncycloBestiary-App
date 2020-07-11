@@ -2,11 +2,60 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import './LogInPage.css'
+import Context from '../../../Context';
+import AuthApiService from '../../../Services/auth-api-service'
+import TokenService from '../../../Services/token-service'
 
 export class LogInPage extends Component {
+  static contextType = Context;
+
+  static defaultProps = {
+    location: [],
+    history: {
+      push: () => {},
+    }
+  }
+
+  state = { error: null }
+
+  handleSubmitJwtAuth = e => {
+    e.preventDefault()
+
+    console.log('Log in clicked')
+    this.setState({ error: null })
+    const { username, password } = e.target
+
+    AuthApiService.postLogin ({
+      username: username.value,
+      password: password.value,
+    })
+      .then(res => {
+        username.value=""
+        password.value=""
+        this.context.setUser(res.authToken)
+        console.log(res)
+        this.onLoginSuccess()
+      })
+      .catch(res => {
+        console.error(res)
+        this.setState({ error: res.error })
+      })
+  }
+
+  onLoginSuccess = () => {
+    const { location, history } = this.props
+    const destination = `/users/${TokenService.readJwtToken().user_id}`
+    history.push(destination)
+  }
+  
   render() {
+    const { error } = this.state
+  
     return (
-      <form id="LogIn-Form">
+      <form
+        id="LogIn-Form"
+        onSubmit={this.handleSubmitJwtAuth}  
+      >
         <fieldset>
           <legend>Log-In</legend>
           <p>Sign into your existing account</p>
@@ -20,6 +69,7 @@ export class LogInPage extends Component {
             id="username"
             name="username"
             className="account-input"
+            required
           />
 
           <br/>
@@ -31,21 +81,26 @@ export class LogInPage extends Component {
             id="password"
             name="password"
             className="account-input"
+            required
           />
 
           <br/>
-          <br/>
-
-          <Link
-            to={"/users/:userId"}
-          >
+          <div className="navButtons">
+            <Link
+              to={`/`}
+            >
+              <button
+                className="btn"
+              >
+                Back
+              </button>
+            </Link>
             <input
               type="submit"
               value="Submit"
-              id="login-button"
+              className="btn"
             />
-          </Link>
-          
+          </div>
         </fieldset>
       </form>
     )

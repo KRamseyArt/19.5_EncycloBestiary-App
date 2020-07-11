@@ -15,10 +15,3 @@
   list-style-type: none;
   margin: 10px auto;
 }
-#Profile-Nav li button {
-  background: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-}

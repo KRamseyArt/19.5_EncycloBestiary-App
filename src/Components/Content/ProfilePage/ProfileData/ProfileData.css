@@ -2,6 +2,9 @@
   flex: 1;
   padding: 10px;
 }
+#Username {
+  font-size: 2rem;
+}
 
 #Avatar {
   margin: 10px auto;
@@ -13,5 +16,5 @@
 }
 #Profile-Nav li {
   list-style-type: none;
-  margin: 10px auto;
+  margin: 10px auto 0 auto;
 }

@@ -1,7 +1,8 @@
 #Data-List {
   flex: 3;
-  background: gray;
+  background: #4C3B4D;
   width: 100%;
+  padding-bottom: 150px;
 }
 #Data-List h3 {
   color: white;

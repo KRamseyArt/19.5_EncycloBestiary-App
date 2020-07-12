@@ -190,7 +190,6 @@ export class Content extends Component {
               component={NotFoundPage}
             />
           </Switch>
-          <div id="cushion" />
         </content>
       </Context.Provider>
     )

@@ -1,16 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Open+Sans&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0 auto;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+.heading-text {
+  font-family: 'Amarante', sans-serif;
 }
 
 .App {
   height: 100%;
   margin: 0;
+  background: #FEFAE0;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
 .btn {
-  background: black;
+  background: #BC6C25;
   color: white;
   border: none;
   border-radius: 5px;
@@ -19,9 +29,9 @@
 }
 .btn:hover {
   cursor: pointer;
-  background: gray;
+  background: #DDA15E;
 }
 .btn:disabled {
   cursor: default;
-  background: gray;
+  background: #4C3B4D;
 }

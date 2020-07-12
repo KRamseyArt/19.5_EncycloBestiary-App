@@ -1,10 +1,13 @@
 #Footer {
-  background: lightgray;
-  padding: 10px 0 0 0;
-  position: fixed;
+  /* background: lightgray; */
+  padding: 5px;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  height: 100px;
+  /* height: 40px; */
+  display: flex;
+  background: #5BC3EB;
+
   /* margin-top: -150px; */
 }
 
@@ -16,23 +19,27 @@
 }
 #Social-Links li {
   list-style-type: none;
+  margin: 0 5px;
+}
+.social-img {
+  max-width: 20px;
 }
 
-.Social-Icon {
-  background: black;
+/* .Social-Icon {
+  background: #5BC3EB;
   color: white;
   padding-top: 10px;
   border-radius: 15px 15px 0 0;
   width: 75px;
   font-size: 12px;
-}
-.Social-Icon img {
+} */
+/* .Social-Icon img {
   border-radius: 10px;
-}
+} */
 
 #copyright {
-  background: black;
+  font-size: 12px;
   width: 100%;
   color: white;
-  padding: 5px;
+  /* padding: 5px; */
 }

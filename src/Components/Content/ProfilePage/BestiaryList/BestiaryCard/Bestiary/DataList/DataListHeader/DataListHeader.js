@@ -11,6 +11,7 @@ export class DataListHeader extends Component {
   render() {
     return (
       <section id="DataHeader">
+        <h3 id="DataTitle" className="heading-text">Bestiary Data:</h3>
         <Link
           to={`/users/${this.context.user.id}/bestiaries/${this.context.activeBestiaryID}/add-data`}
         >
@@ -20,7 +21,7 @@ export class DataListHeader extends Component {
             Add New
           </button>
         </Link>
-        <h3 id="DataTitle">Bestiary Data:</h3>
+        
       </section>
     )
   }

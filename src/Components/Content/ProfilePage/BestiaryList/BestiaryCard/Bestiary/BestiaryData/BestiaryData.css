@@ -3,17 +3,15 @@
   padding: 10px;
 }
 
+#Bestiary-Name {
+  font-size: 2rem;
+  color: #4C3B4D;
+}
+
 #Bestiary-Nav {
   padding: 0;
 }
 #Bestiary-Nav li {
   list-style-type: none;
-  margin: 10px auto;
-}
-#Bestiary-Nav li button {
-  background: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
+  margin: 10px auto 0 auto;
 }

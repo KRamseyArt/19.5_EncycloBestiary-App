@@ -1,18 +1,38 @@
 #SignUp-Form {
-  margin: 0 20px;
+  padding-top: 30px;
+  padding-bottom: 150px;
+  background: #4C3B4D;
 }
 
-fieldset {
+#SignUp-Form fieldset {
+  margin: 0 20px;
+  background: #FEFAE0;
+  border: 5px solid #BC6C25;
+  border-radius: 15px;
+}
+
+#SignUp-Form legend {
+  font-family: 'Amarante', sans-serif;
+  background: #BC6C25;
+  color: white;
+  padding: 10px 30px;
   border-radius: 10px;
 }
 
-legend {
-  font-size: 24px;
+#SignUp-Form label {
+  color: #4C3B4D;
+  display: block;
+  margin: 10px auto;
   font-weight: bold;
 }
 
-.account-input {
-  border-radius: 20px;
-  border: 2px solid lightgray;
-  padding: 5px 20px;
+#SignUp-Form .account-input {
+  width: 50%;
+  border-radius: 10px;
+  border: 2px solid #DDA15E;
+  padding: 5px 10px;
+}
+
+#SignUp-Form .navButtons {
+  margin: 20px auto;
 }

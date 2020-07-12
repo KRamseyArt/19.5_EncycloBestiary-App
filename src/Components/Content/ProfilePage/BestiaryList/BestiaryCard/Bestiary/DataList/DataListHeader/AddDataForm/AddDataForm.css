@@ -1,15 +1,33 @@
 #AddData-Form {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  background: #4C3B4D;
+}
+
+#AddData-Form fieldset {
   margin: 0 20px;
+  background: #FEFAE0;
+  border: 5px solid #BC6C25;
+  border-radius: 15px;
+}
+#AddData-Form legend {
+  background: #BC6C25;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 10px;
 }
 
 #AddData-Form label {
+  color: #4C3B4D;
   display: block;
+  margin: 10px auto;
+  font-weight: bold;
 }
 
 #data-title {
   width: 85%;
   border-radius: 10px;
-  border: 2px solid lightgray;
+  border: 2px solid #DDA15E;
   padding: 5px 10px;
 }
 
@@ -17,6 +35,10 @@
   width: 85%;
   height: 75px;
   border-radius: 10px;
-  border: 2px solid lightgray;
+  border: 2px solid #DDA15E;
   padding: 5px 10px;
+}
+
+.navButtons {
+  margin: 20px auto;
 }

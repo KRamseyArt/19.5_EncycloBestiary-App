@@ -1,10 +1,13 @@
 #DataHeader {
   display: flex;
-  margin: 10px auto;
+  /* margin: 10px auto; */
+  padding: 10px;
   justify-content: center;
 }
 
+
 #DataTitle {
   align-self:center;
-  margin-right: 5px;
+  font-size: 24px;
+  /* margin-right: 5px; */
 }

@@ -14,7 +14,9 @@ export class BestiaryFolder extends Component {
 
     return (
       <div className="Bestiary-Card">
-        <h5>{bestiary.bestiary_name}</h5>
+        <div className="Bestiary-Card-Header">
+          <h5 className="heading-text">{bestiary.bestiary_name}</h5>
+        </div>
         <p>{bestiary.bestiary_description}</p>
         <ul className="Bestiary-Settings">
           <li>

@@ -1,5 +1,9 @@
+#Home-Content{
+  padding-bottom: 50px;
+}
+
 #Home-Content section:nth-child(even) {
-  background: lightgray;
+  background: #DDA15E;
 }
 
 #Home-Content section {
@@ -8,4 +12,13 @@
 }
 #Home-Content section h2 {
   margin-bottom: 20px;
+}
+
+#demo-details {
+  background: #4C3B4D;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  width: 75%;
+  font-weight: bold;
 }

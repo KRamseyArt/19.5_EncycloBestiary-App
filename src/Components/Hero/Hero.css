@@ -1,4 +1,9 @@
 #Hero {
-  background: white;
-  padding: 50px;
+  background: #4C3B4D;
+  padding: 20px;
+  color: white;
+}
+
+#Hero h1 {
+  font-size: 36px;
 }

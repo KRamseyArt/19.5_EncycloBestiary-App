@@ -14,11 +14,11 @@ export class BestiaryList extends Component {
     return (
       <div id="Bestiary-List">
         <section id="BestiaryHeader">
-          <h3 id="BestiaryTitle">Bestiaries:</h3>
+          <h3 id="BestiaryTitle" className="heading-text">Bestiaries:</h3>
           <Link
             to={`/users/${this.context.user.id}/add-bestiary`}
           >
-            <button id="addNewBestiary-button">Add New</button>
+            <button class="btn">Add New</button>
           </Link>
         </section>
         <section id="User-Collections">

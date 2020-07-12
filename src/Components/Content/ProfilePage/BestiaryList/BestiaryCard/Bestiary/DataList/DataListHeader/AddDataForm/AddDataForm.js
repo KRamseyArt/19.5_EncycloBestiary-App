@@ -166,7 +166,7 @@ export class AddDataForm extends Component {
           <br/>
           <div className="navButtons">
             <Link
-              to={`/users/${this.context.user.id}/bestiaries/${thisBestiary.id}`}
+              to={TokenService.hasAuthToken() ? `/users/${this.context.user.id}/bestiaries/${thisBestiary.id}` : `/log-in`}
             >
               <button
                 className="btn"

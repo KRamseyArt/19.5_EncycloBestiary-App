@@ -63,7 +63,6 @@ export class LogInPage extends Component {
           <br/>
           
           <label htmlFor="username">Username:</label>
-          <br/>
           <input
             type="text"
             id="username"
@@ -75,7 +74,6 @@ export class LogInPage extends Component {
           <br/>
           
           <label htmlFor="password">Password:</label>
-          <br/>
           <input
             type="password"
             id="password"

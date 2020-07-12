@@ -22,17 +22,24 @@ export class ProfileData extends Component {
     IdleService.unRegisterIdleResets()
   }
 
+  renderProfileImg = () => {
+    return(
+      <img
+        id="Avatar"
+        src="https://via.placeholder.com/150?text=Profile+Pic"
+        alt="User Avatar"  
+      />
+    )
+  }
+
   render() {
     const { user } = this.context;
     
     return (
       <nav id="Profile-Data">
-        <h3 id="Username">{user.username}</h3>
-        <img
-          id="Avatar"
-          src="https://via.placeholder.com/150?text=Profile+Pic"
-          alt="User Avatar"  
-        />
+        <h3 id="Username" className="heading-text">{user.username}'s Profile</h3>
+        <hr/>
+        {user.avatar_url ? this.renderProfileImg : null}
         <p>({user.about_me})</p>
         <ul id="Profile-Nav">
           <li>

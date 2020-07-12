@@ -69,8 +69,8 @@ export class SignUpPage extends Component {
             </ValidationError>
           )}
           
-          <label htmlFor="email">Email:</label>
           <br/>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -80,9 +80,7 @@ export class SignUpPage extends Component {
           />
 
           <br/>
-
           <label htmlFor="username">Username:</label>
-          <br/>
           <input
             type="test"
             id="username"
@@ -94,7 +92,6 @@ export class SignUpPage extends Component {
           <br/>
           
           <label htmlFor="password">Password:</label>
-          <br/>
           <input
             type="password"
             id="password"
@@ -104,7 +101,6 @@ export class SignUpPage extends Component {
           />
           <br/>
           <label htmlFor="varify-password">Verify Password:</label>
-          <br/>
           <input
             type="password"
             id="verify-password"
@@ -113,7 +109,6 @@ export class SignUpPage extends Component {
             required
           />
 
-          <br/>
           <br/>
 
           <div className="navButtons">

@@ -17,7 +17,7 @@ export class Bestiary extends Component {
     console.log(bestiaryData)
     
     return (
-      <div id="ProfilePage">
+      <div id="BestiaryPage">
         <BestiaryData
           activeBestiaryID={bestiaryID}
         />

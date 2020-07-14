@@ -42,6 +42,7 @@ export class Content extends Component {
 
     if (TokenService.hasAuthToken()){
       IdleService.registerIdleTimerResets()
+      this.handleSuccessfulLogin()
     }
 
     // TokenService.queueCallbackBeforeExpiry(() => {
@@ -100,8 +101,6 @@ export class Content extends Component {
       .catch(error => {
         console.error(error)
       })
-    
-    
   }
   setActiveBestiaryID = (bestiaryId) => {
     this.setState({
@@ -121,16 +120,66 @@ export class Content extends Component {
     })
   }
   deleteData = (dataId) => {
-    this.setState({
-      data: this.state.data.filter(d =>
-        d.id !== dataId)
+    fetch (`${Config.API_ENDPOINT}/data/${dataId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
     })
+      .then(res => {
+        this.setState({
+          data: this.state.data.filter(d =>
+            d.id !== dataId)
+        })
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
+  handleSuccessfulLogin = () => {
+    if (TokenService.hasAuthToken()){
+      const ENDPOINT = Config.API_ENDPOINT;
+    
+      Promise.all([
+        // fetch(`${ENDPOINT}/users/1`),
+        // fetch(`${ENDPOINT}/users/1/bestiaries`),
+        // fetch(`${ENDPOINT}/users/1/data`),
+        fetch(`${ENDPOINT}/users/${TokenService.readJwtToken().user_id}`),
+        fetch(`${ENDPOINT}/users/${TokenService.readJwtToken().user_id}/bestiaries`),
+        fetch(`${ENDPOINT}/users/${TokenService.readJwtToken().user_id}/data`),
+      ])
+        .then(([userRes, bestiariesRes, dataRes]) => {
+          console.log([userRes, bestiariesRes, dataRes])
+
+          if(!userRes.ok){
+            return userRes.json().then(e => Promise.reject(e))
+          }
+          if(!bestiariesRes.ok){
+            return bestiariesRes.json().then(e => Promise.reject(e))
+          }
+          if(!dataRes.ok){
+            return dataRes.json().then(e => Promise.reject(e))
+          }
+          console.log([userRes, bestiariesRes, dataRes]);
+          return Promise.all([userRes.json(), bestiariesRes.json(), dataRes.json()]);
+        })
+        .then(([user, bestiaries, data]) => {
+          console.log([user, bestiaries, data]);
+          this.setUser(user)
+          this.setBestiaries(bestiaries)
+          this.setData(data)
+        })
+        .catch(error => {
+          console.error({error});
+        })
+    }
+    
   }
   
   render() {
     const state = this.state;
-    console.log(this.state);
-    console.log(this.context);
     
     const contextValue = {
       userToken: state.userToken,
@@ -146,13 +195,14 @@ export class Content extends Component {
       setActiveBestiaryID: this.setActiveBestiaryID,
       setData: this.setData,
       addData: this.addData,
-      deleteData: this.deleteData
+      deleteData: this.deleteData,
+      handleSuccessfulLogin: this.handleSuccessfulLogin
     }
     return (
       <Context.Provider
         value={contextValue}
       >
-        <content id="Content">
+        <section id="Content">
           <NavBar />
 
           <Switch>
@@ -190,7 +240,7 @@ export class Content extends Component {
               component={NotFoundPage}
             />
           </Switch>
-        </content>
+        </section>
       </Context.Provider>
     )
   }

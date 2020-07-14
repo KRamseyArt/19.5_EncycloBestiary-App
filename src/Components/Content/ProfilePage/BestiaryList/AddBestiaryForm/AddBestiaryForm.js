@@ -50,11 +50,18 @@ export class AddBestiaryForm extends Component {
       })
       .then(res => {
         this.context.addBestiary(res);
+        this.onSubmitSuccess();
       })
       .catch(error => {
         console.error(error)
       })
     
+  }
+
+  onSubmitSuccess = () => {
+    const {history} = this.props;
+    const destination = `/users/${TokenService.readJwtToken().user_id}/bestiaries`
+    history.push(destination)
   }
 
   updateBestiaryName(name){
@@ -154,7 +161,7 @@ export class AddBestiaryForm extends Component {
           <br/>
           <div className="navButtons">
             <Link
-              to={`/users/${this.context.user.id}`}
+              to={TokenService.hasAuthToken() ? `/users/${this.context.user.id}` : `/log-in`}
             >
               <button
                 className="btn"

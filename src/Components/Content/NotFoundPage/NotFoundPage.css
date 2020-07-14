@@ -1,7 +1,11 @@
 #notFound {
-  margin-bottom: 20px;
+  min-height: calc(100vh - 190px);
+  background: #FEFAE0;
 }
 
 #notFound h3 {
   color: red;
+}
+#notFound p {
+  margin-bottom: 20px;
 }

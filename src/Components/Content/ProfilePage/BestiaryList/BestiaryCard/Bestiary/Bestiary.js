@@ -10,19 +10,20 @@ export class Bestiary extends Component {
   static contextType = Context;
   
   render() {
-    const bestiaryID = this.context.activeBestiaryID;
+    const bestiaryID = this.props.match.params.bestiaryId;
     const bestiaryData = this.context.data.filter(d => {
-      return d.bestiary_id === bestiaryID
+      return d.bestiary_id == bestiaryID
     })
     console.log(bestiaryData)
     
     return (
       <div id="BestiaryPage">
         <BestiaryData
-          activeBestiaryID={bestiaryID}
+          activeBestiaryID={this.context.activeBestiaryID}
+          bestiaryId={this.props.match.params.bestiaryId}
         />
         <DataList
-          activeBestiaryID={bestiaryID}
+          activeBestiaryId={this.props.match.params.bestiaryId}
           bestiaryData={bestiaryData}
         />
       </div>

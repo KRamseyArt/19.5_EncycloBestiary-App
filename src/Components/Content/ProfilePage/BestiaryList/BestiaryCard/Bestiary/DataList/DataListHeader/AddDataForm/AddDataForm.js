@@ -31,7 +31,7 @@ export class AddDataForm extends Component {
     const { data_name, data_description } = this.state;
 
     const newData = {
-      bestiary_id: this.context.activeBestiaryID,
+      bestiary_id: this.props.match.params.bestiaryId,
       data_name: data_name.value,
       data_description: data_description.value
     };
@@ -53,17 +53,18 @@ export class AddDataForm extends Component {
         return res.json()
       })
       .then(res => {
-        console.log(res);
         this.context.addData(res);
+        this.onSubmitSuccess();
       })
       .catch(error => {
         console.error(error)
       })
   }
 
-  handleValidDataSubmit = () => {
-    const { history } = this.props
-    history.push(`users/${this.context.user.id}/bestiaries/${this.context.activeBestiaryID}`)
+  onSubmitSuccess = () => {
+    const {history} = this.props;
+    const destination = `/users/${TokenService.readJwtToken().user_id}/bestiaries/${this.props.match.params.bestiaryId}`
+    history.push(destination)
   }
 
   updateDataName(name){
@@ -166,7 +167,7 @@ export class AddDataForm extends Component {
           <br/>
           <div className="navButtons">
             <Link
-              to={TokenService.hasAuthToken() ? `/users/${this.context.user.id}/bestiaries/${thisBestiary.id}` : `/log-in`}
+              to={TokenService.hasAuthToken() ? `/users/${this.context.user.id}/bestiaries/${this.props.match.params.bestiaryId}` : `/log-in`}
             >
               <button
                 className="btn"

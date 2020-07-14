@@ -6,8 +6,8 @@ import './NotFoundPage.css'
 export class NotFoundPage extends Component {
   render() {
     return (
-      <div>
-        <div id="notFound">
+      <div id="notFound">
+        <div>
           <h3>404 NOT FOUND</h3>
           <p>The page you are searching for was not found...</p>
         </div>

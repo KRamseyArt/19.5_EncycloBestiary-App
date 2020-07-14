@@ -1,7 +1,8 @@
 .DataCard {
-  background: #5BC3EB;
-  margin: 2px auto;
+  background: #DDA15E;
+  margin: 10px 0 10px 10px;
   list-style-type: none;
+  border-radius: 10px 0 0 10px;
 }
 
 .DataInfo {
@@ -10,6 +11,8 @@
 }
 .DataName {
   margin-left: 5px;
+  font-size: 1.25rem;
+  color: white;
 }
 .deleteData-button {
   margin-right: 5px;
@@ -18,6 +21,7 @@
 .DataDescription {
   background: white;
   padding: 10px;
+  border-radius: 0 0 0 10px;
 }
 
 .DataDescription p {

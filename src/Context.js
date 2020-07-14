@@ -12,7 +12,8 @@ const Context = React.createContext({
   addBestiary: () => {},
   deleteBestiary: () => {},
   addData: () => {},
-  deleteData: () => {}
+  deleteData: () => {},
+  handleSuccessfulLogin: () =>{}
 })
 
 export default Context;

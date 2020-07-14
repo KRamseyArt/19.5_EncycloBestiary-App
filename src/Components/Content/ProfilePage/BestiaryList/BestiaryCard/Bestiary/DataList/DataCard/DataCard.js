@@ -11,7 +11,7 @@ export class DataCard extends Component {
     return (
       <li className="DataCard">
         <div className="DataInfo">
-          <h4 className="DataName">{data.data_name}</h4>
+          <h4 className="heading-text DataName">{data.data_name}</h4>
           <button
             className="btn"
             onClick={() => this.context.deleteData(data.id)}

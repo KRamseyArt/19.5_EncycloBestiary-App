@@ -15,7 +15,7 @@ export class Footer extends Component {
                 target="_blank"
               >
                 <img
-                  class="social-img"
+                  className="social-img"
                   src="https://drive.google.com/thumbnail?id=1G_P7_pqm_IyfZUa2J6vpcu1U_-qFGVby"
                   alt="Github Link"
                 />
@@ -30,7 +30,7 @@ export class Footer extends Component {
                 target="_blank"
               >
                 <img
-                  class="social-img"
+                  className="social-img"
                   src="https://drive.google.com/thumbnail?id=1NSgJNRt33WLoY2yTY0FCcxiFFFtS8ETy"
                   alt="LinkedIn Link"  
                 />
@@ -45,7 +45,7 @@ export class Footer extends Component {
                 target="_blank"
               >
                 <img
-                  class="social-img"
+                  className="social-img"
                   src="https://drive.google.com/thumbnail?id=1hvJRn4mWx7L_FeTzPZksQMMAmVwuQrpj"
                   alt="Email Link"  
                 />

@@ -37,7 +37,7 @@ export class ProfileData extends Component {
     
     return (
       <nav id="Profile-Data">
-        <h3 id="Username" className="heading-text">{user.username}'s Profile</h3>
+        <h3 id="Username" className="heading-text">{user.username}'s Bestiaries</h3>
         <hr/>
         {user.avatar_url ? this.renderProfileImg : null}
         <p>({user.about_me})</p>
@@ -52,6 +52,13 @@ export class ProfileData extends Component {
               >
                 Log Out
               </button>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={`/users/${this.context.user.id}/add-bestiary`}
+            >
+              <button class="btn">Add New</button>
             </Link>
           </li>
         </ul>

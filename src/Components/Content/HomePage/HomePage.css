@@ -1,5 +1,7 @@
 #Home-Content{
-  padding-bottom: 50px;
+  padding-bottom: 40px;
+  background: #FEFAE0;
+  min-height: calc(100vh - 190px);
 }
 
 #Home-Content section:nth-child(even) {
@@ -7,7 +9,7 @@
 }
 
 #Home-Content section {
-  margin: 10px auto;
+  /* margin: 10px auto; */
   padding: 20px;
 }
 #Home-Content section h2 {
@@ -21,4 +23,15 @@
   border-radius: 50px;
   width: 75%;
   font-weight: bold;
+}
+
+#Home-Content a {
+  text-decoration: none;
+  color: #5BC3EB;
+  font-weight: bold;
+}
+#Home-Content a:hover {
+  background: #5BC3EB;
+  color: white;
+  border-radius: 5px;
 }

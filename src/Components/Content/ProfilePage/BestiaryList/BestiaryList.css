@@ -8,7 +8,9 @@
   flex: 3;
   background: #4C3B4D;
   width: 100%;
-  padding-bottom: 50px;
+  padding-top: 5px;
+  min-height: calc(100vh - 190px);
+  padding-bottom: 45px;
 }
 #Bestiary-List h3 {
   color: white;

@@ -9,8 +9,6 @@ export class DataList extends Component {
     const bestiaryData = this.props.bestiaryData;
     return (
       <div id="Data-List">
-        <DataListHeader/>
-
         <ul id="Data-Collections">
           {bestiaryData.map(data => {
             return (

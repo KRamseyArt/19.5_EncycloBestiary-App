@@ -1,6 +1,7 @@
 #Bestiary-Data {
   flex: 1;
   padding: 10px;
+  background: #FEFAE0;
 }
 
 #Bestiary-Name {
@@ -10,6 +11,8 @@
 
 #Bestiary-Nav {
   padding: 0;
+  display: flex;
+  width: 200px;
 }
 #Bestiary-Nav li {
   list-style-type: none;

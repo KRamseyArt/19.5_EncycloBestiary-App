@@ -9,11 +9,12 @@ export class DataListHeader extends Component {
   static contextType = Context;
 
   render() {
+    console.log(this.props)
     return (
       <section id="DataHeader">
         <h3 id="DataTitle" className="heading-text">Bestiary Data:</h3>
         <Link
-          to={`/users/${this.context.user.id}/bestiaries/${this.context.activeBestiaryID}/add-data`}
+          to={`/users/${this.context.user.id}/bestiaries/${this.props.activeBestiaryId}/add-data`}
         >
           <button
             className="btn"

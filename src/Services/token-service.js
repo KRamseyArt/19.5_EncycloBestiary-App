@@ -1,19 +1,19 @@
 import jwtDecode from 'jwt-decode'
-import config from '../Config'
+import Config from '../Config'
 
 let _timeoutId
 const _SECOND_TIMER_IN_MS = 5 * 60 * 1000 // 10 seconds // desired_seconds * seconds_per_miliseconds
 
 const TokenService = {
   saveAuthToken(token) {
-    window.sessionStorage.setItem(config.TOKEN_KEY, token)
+    window.sessionStorage.setItem(Config.TOKEN_KEY, token)
   },
   getAuthToken() {
-    return window.sessionStorage.getItem(config.TOKEN_KEY)
+    return window.sessionStorage.getItem(Config.TOKEN_KEY)
   },
   clearAuthToken() {
     console.info('clearing the auth token')
-    window.sessionStorage.removeItem(config.TOKEN_KEY)
+    window.sessionStorage.removeItem(Config.TOKEN_KEY)
   },
   hasAuthToken() {
     return !!TokenService.getAuthToken()

@@ -7,6 +7,10 @@ import TokenService from '../../../../../Services/token-service';
 
 export class BestiaryFolder extends Component {
   static contextType = Context;
+
+  static defaultProps = {
+    bestiary: {}
+  }
   
   countData = bestiaryId => {
     let count = 0;

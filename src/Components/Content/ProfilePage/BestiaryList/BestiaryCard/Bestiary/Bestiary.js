@@ -8,6 +8,14 @@ import DataList from './DataList/DataList';
 
 export class Bestiary extends Component {
   static contextType = Context;
+
+  static defaultProps = {
+    match:{
+      params:{
+        bestiaryId: null
+      }
+    }
+  }
   
   render() {
     const bestiaryID = this.props.match.params.bestiaryId;

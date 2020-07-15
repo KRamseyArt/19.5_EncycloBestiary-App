@@ -5,6 +5,10 @@ import DataCard from './DataCard/DataCard';
 import DataListHeader from './DataListHeader/DataListHeader';
 
 export class DataList extends Component {
+  static defaultProps = {
+    bestiaryData: []
+  }
+
   render() {
     const bestiaryData = this.props.bestiaryData;
     return (

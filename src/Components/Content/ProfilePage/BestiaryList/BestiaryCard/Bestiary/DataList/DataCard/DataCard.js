@@ -5,9 +5,17 @@ import Context from '../../../../../../../../Context'
 
 export class DataCard extends Component {
   static contextType = Context;
+
+  static defaultProps = {
+    data: {
+      id: null,
+      data_name:"",
+      data_description: ""
+    }
+  }
   
   render() {
-    const data = this.props.data;
+    const data = this.props.data ;
     return (
       <li className="DataCard">
         <div className="DataInfo">

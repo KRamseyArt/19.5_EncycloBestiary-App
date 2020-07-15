@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BroswerRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import ValidationError from './ValidationError';
 
@@ -10,10 +10,10 @@ describe (`ValidationError Component`, () => {
   it ('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
-      <Router>
+      //<Router>
         <ValidationError />
-      </Router>, 
-      div
+      //</Router>, 
+      ,div
     );
     ReactDOM.unmountComponentAtNode(div);
   })

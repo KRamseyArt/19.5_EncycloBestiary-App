@@ -1,10 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import AddBestiaryForm from './AddBestiaryForm';
 
-it ('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<AddBestiaryForm/>, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe (`AddBestiaryForm Component`, () => {
+
+  // smoke test
+  it ('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(
+      <Router>
+        <AddBestiaryForm />
+      </Router>
+      ,div
+    );
+    ReactDOM.unmountComponentAtNode(div);
+  })
+
 })

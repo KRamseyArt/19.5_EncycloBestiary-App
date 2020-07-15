@@ -9,8 +9,8 @@
   background: #4C3B4D;
   width: 100%;
   padding-top: 5px;
-  min-height: calc(100vh - 190px);
-  padding-bottom: 45px;
+  /* min-height: calc(100vh - 190px); */
+  padding-bottom: 10px;
 }
 #Bestiary-List h3 {
   color: white;
@@ -21,5 +21,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  /* padding-bottom: 50px; */
 }
 

@@ -2,7 +2,8 @@
   flex: 3;
   background: #4C3B4D;
   width: 100%;
-  padding-bottom: 40px;
+  /* height: calc(100vh - 20px); */
+  padding-bottom: 10px;
 }
 #Data-List h3 {
   color: white;

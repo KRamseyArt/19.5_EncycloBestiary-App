@@ -9,29 +9,28 @@ import DataList from './DataList/DataList';
 export class Bestiary extends Component {
   static contextType = Context;
 
-  static defaultProps = {
-    match:{
-      params:{
-        bestiaryId: null
-      }
-    }
-  }
+  // static defaultProps = {
+  //   match:{
+  //     params:{
+  //       bestiaryId: null
+  //     }
+  //   }
+  // }
   
   render() {
     const bestiaryID = this.props.match.params.bestiaryId;
     const bestiaryData = this.context.data.filter(d => {
-      return d.bestiary_id === bestiaryID
+      return d.bestiary_id.toString() === bestiaryID
     })
+    console.log(this.context)
     console.log(bestiaryData)
     
     return (
       <div id="BestiaryPage">
         <BestiaryData
-          activeBestiaryID={this.context.activeBestiaryID}
           bestiaryId={this.props.match.params.bestiaryId}
         />
         <DataList
-          activeBestiaryId={this.props.match.params.bestiaryId}
           bestiaryData={bestiaryData}
         />
       </div>

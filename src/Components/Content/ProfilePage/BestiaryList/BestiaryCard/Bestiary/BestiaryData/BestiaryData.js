@@ -10,7 +10,8 @@ export class BestiaryData extends Component {
 
   render() {
     console.log(this.props.bestiaryId)
-    const bestiary = this.context.bestiaries.filter(b => b.id === this.props.bestiaryId)[0]
+    console.log(this.context.bestiaries)
+    const bestiary = this.context.bestiaries.filter(b => b.id.toString() === this.props.bestiaryId)[0]
       || {bestiary_name: "Oops...", bestiary_description: "It seems the bestiary you're looking for does not exist. Please try again!"}
     console.log(bestiary)
     

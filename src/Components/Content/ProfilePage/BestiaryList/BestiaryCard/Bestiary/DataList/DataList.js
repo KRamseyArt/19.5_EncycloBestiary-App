@@ -9,6 +9,7 @@ export class DataList extends Component {
   }
 
   render() {
+    console.log(this.props)
     const bestiaryData = this.props.bestiaryData;
     return (
       <div id="Data-List">

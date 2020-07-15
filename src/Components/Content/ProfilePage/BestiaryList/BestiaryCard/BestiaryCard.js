@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 import './BestiaryCard.css'
 import Context from '../../../../../Context';
-import TokenService from '../../../../../Services/token-service';
 
 export class BestiaryFolder extends Component {
   static contextType = Context;
@@ -15,7 +14,7 @@ export class BestiaryFolder extends Component {
   countData = bestiaryId => {
     let count = 0;
     this.context.data.forEach(d =>{
-      if (d.bestiary_id == bestiaryId){
+      if (d.bestiary_id === bestiaryId){
         count++;
       }
     })

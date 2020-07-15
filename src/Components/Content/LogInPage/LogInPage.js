@@ -10,7 +10,6 @@ export class LogInPage extends Component {
   static contextType = Context;
 
   static defaultProps = {
-    location: [],
     history: {
       push: () => {},
     }
@@ -43,14 +42,12 @@ export class LogInPage extends Component {
   }
 
   onLoginSuccess = () => {
-    const { location, history } = this.props
+    const { history } = this.props
     const destination = `/users/${TokenService.readJwtToken().user_id}`
     history.push(destination)
   }
   
-  render() {
-    const { error } = this.state
-  
+  render() {  
     return (
       <form
         id="LogIn-Form"

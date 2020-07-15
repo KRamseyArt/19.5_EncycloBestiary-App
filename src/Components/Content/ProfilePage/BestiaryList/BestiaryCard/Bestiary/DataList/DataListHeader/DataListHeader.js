@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import './DataListHeader.css'
 import Context from '../../../../../../../../Context'
-import TokenService from '../../../../../../../../Services/token-service'
 
 export class DataListHeader extends Component {
   static contextType = Context;

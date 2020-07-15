@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 
 import './ProfilePage.css'
-import Config from '../../../Config'
 import Context from '../../../Context'
 
 import ProfileData from './ProfileData/ProfileData';
 import BestiaryList from './BestiaryList/BestiaryList';
-import AuthApiService from '../../../Services/auth-api-service';
-import TokenService from '../../../Services/token-service';
 
 export class ProfilePage extends Component {
   static contextType = Context;

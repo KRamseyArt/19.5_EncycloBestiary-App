@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import './DataList.css';
 import DataCard from './DataCard/DataCard';
-import DataListHeader from './DataListHeader/DataListHeader';
 
 export class DataList extends Component {
   static defaultProps = {

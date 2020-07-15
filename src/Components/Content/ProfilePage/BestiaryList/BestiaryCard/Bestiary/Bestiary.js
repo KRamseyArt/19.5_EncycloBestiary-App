@@ -20,7 +20,7 @@ export class Bestiary extends Component {
   render() {
     const bestiaryID = this.props.match.params.bestiaryId;
     const bestiaryData = this.context.data.filter(d => {
-      return d.bestiary_id == bestiaryID
+      return d.bestiary_id === bestiaryID
     })
     console.log(bestiaryData)
     

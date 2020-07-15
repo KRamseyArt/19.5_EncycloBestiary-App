@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {Switch, Route } from 'react-router-dom';
 
-import STORE from '../../STORE';
-
 import './Content.css';
 import Config from '../../Config';
 
@@ -17,7 +15,6 @@ import AddDataForm from './ProfilePage/BestiaryList/BestiaryCard/Bestiary/DataLi
 import AddBestiaryForm from './ProfilePage/BestiaryList/AddBestiaryForm/AddBestiaryForm';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 
-import AuthApiService from '../../Services/auth-api-service'
 import IdleService from '../../Services/idle-service'
 import TokenService from '../../Services/token-service'
 

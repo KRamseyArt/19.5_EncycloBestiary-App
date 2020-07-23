@@ -20,7 +20,6 @@ export class LogInPage extends Component {
   handleSubmitJwtAuth = e => {
     e.preventDefault()
 
-    console.log('Log in clicked')
     this.setState({ error: null })
     const { username, password } = e.target
 
@@ -32,7 +31,6 @@ export class LogInPage extends Component {
         username.value=""
         password.value=""
         this.context.setUser(res.authToken)
-        console.log(res)
         this.onLoginSuccess()
       })
       .catch(res => {

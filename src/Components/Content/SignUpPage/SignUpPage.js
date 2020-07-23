@@ -23,7 +23,6 @@ export class SignUpPage extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    console.log('submit sign up')
     const { username, email, password, verify_password } = e.target
 
     this.setState({ error: null })

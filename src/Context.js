@@ -7,7 +7,6 @@ const Context = React.createContext({
   bestiaries: [],
   data: [],
   setUser: () => {},
-  addUser: () => {},
   setActiveBestiaryID: () => {},
   addBestiary: () => {},
   deleteBestiary: () => {},

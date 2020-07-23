@@ -13,15 +13,17 @@
 .App {
   height: 100%;
   margin: 0;
-  background: #4C3B4D;
+  background-color: #092500;
+  background-image: url("./imgs/cartographer.png");
   min-height: 100vh;
   overflow: hidden;
   position: relative;
 }
 
 .btn {
-  background: #BC6C25;
-  color: white;
+  background: #D52941;
+  color: #FEFAE0;
+  font-weight: bold;
   border: none;
   border-radius: 5px;
   padding: 5px 15px;
@@ -29,9 +31,10 @@
 }
 .btn:hover {
   cursor: pointer;
-  background: #DDA15E;
+  background: #A31621;
 }
 .btn:disabled {
   cursor: default;
-  background: #4C3B4D;
+  color: #E6E0BC;
+  background: #020800;
 }

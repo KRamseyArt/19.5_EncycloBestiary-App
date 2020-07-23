@@ -7,7 +7,7 @@ import TokenService from '../../../Services/token-service'
 export class NavBar extends Component {
   renderAccountLink() {
     return (
-      <div id="Account-Access account">
+      <div id="AccountNav account">
         <Link
           to={`/users/${TokenService.readJwtToken().user_id}`}
         >
@@ -20,12 +20,13 @@ export class NavBar extends Component {
   }
   renderLoginLink() {
     return (
-      <div id="Account-Access login">
+      <div id="AccountNav login">
         <Link to={'/sign-up'}>
           <button className="btn">
             Sign Up
           </button>
         </Link>
+        <div id="spacer"/>
         <Link to ={'/log-in'}>
           <button className="btn">
             Log In
@@ -43,7 +44,7 @@ export class NavBar extends Component {
           : this.renderLoginLink()
         }
         
-        <div id="Page-Nav">
+        <div id="PageNav">
           <Link to={"/"}>
             <button className="btn">Home</button>
           </Link>

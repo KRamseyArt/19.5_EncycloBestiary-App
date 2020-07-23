@@ -14,7 +14,6 @@ export class ProfileData extends Component {
   }
   
   handleLogout = () => {
-    console.log('Logging out!')
     this.context.setUser(null);
     TokenService.clearAuthToken()
 
@@ -40,7 +39,7 @@ export class ProfileData extends Component {
         <h3 id="Username" className="heading-text">{user.username}'s Bestiaries</h3>
         <hr/>
         {user.avatar_url ? this.renderProfileImg : null}
-        <p>({user.about_me})</p>
+        {/* <p>({user.about_me})</p> */}
         <ul id="Profile-Nav">
           <li>
             <Link
@@ -58,7 +57,7 @@ export class ProfileData extends Component {
             <Link
               to={`/users/${this.context.user.id}/add-bestiary`}
             >
-              <button class="btn">Add New</button>
+              <button className="btn">Add New</button>
             </Link>
           </li>
         </ul>

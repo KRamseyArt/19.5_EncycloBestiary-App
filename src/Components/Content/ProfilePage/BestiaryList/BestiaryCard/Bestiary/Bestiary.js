@@ -22,8 +22,6 @@ export class Bestiary extends Component {
     const bestiaryData = this.context.data.filter(d => {
       return d.bestiary_id.toString() === bestiaryID
     })
-    console.log(this.context)
-    console.log(bestiaryData)
     
     return (
       <div id="BestiaryPage">

@@ -16,7 +16,7 @@ export class HomePage extends Component {
         </section>
         <section>
           <h2 className="heading-text">Customize Your Catalogs</h2>
-          <p>Create folders to store related and relevant data, keeping all your ideas grouped together!</p>
+          <p>Create Catalogs of data known as 'Bestiaries', which store a variety of information about a particular topic! Create a Bestiary to outline regions in your world, another to map out the various monsters and species, and yet another to cover different items and various other collectables!</p>
         </section>
         <section>
           <h2 className="heading-text">Test it out!</h2>

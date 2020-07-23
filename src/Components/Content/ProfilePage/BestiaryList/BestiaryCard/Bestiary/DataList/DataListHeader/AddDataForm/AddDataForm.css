@@ -1,44 +1,59 @@
 #AddData-Form {
   padding-top: 30px;
   padding-bottom: 50px;
-  background: #4C3B4D;
+  background-color: #092500;
+  background-image: url("../../../../../../../../../imgs/cartographer.png");
 }
 
 #AddData-Form fieldset {
   margin: 0 20px;
   background: #FEFAE0;
-  border: 5px solid #BC6C25;
+  border: 5px solid #59b60d;
   border-radius: 15px;
 }
 #AddData-Form legend {
-  background: #BC6C25;
-  color: white;
+  font-family: 'Amarante', sans-serif;
+  background: #59b60d;
+  color: #FEFAE0;
+  font-weight: bold;
+  font-size: 24px;
   padding: 10px 30px;
   border-radius: 10px;
 }
 
 #AddData-Form label {
-  color: #4C3B4D;
+  color: #020800;
+  background: #E6E0BC;
+  width: 50%;
   display: block;
-  margin: 10px auto;
+  margin: 5px auto 0 auto;
   font-weight: bold;
+  border-radius: 10px 10px 0 0;
+  padding: 5px;
 }
 
 #data-title {
-  width: 85%;
+  width: 70%;
   border-radius: 10px;
-  border: 2px solid #DDA15E;
+  border: 2px solid #E6E0BC;
   padding: 5px 10px;
+  margin-bottom: 10px;
 }
 
 #data-desc {
-  width: 85%;
-  height: 75px;
+  width: 70%;
   border-radius: 10px;
-  border: 2px solid #DDA15E;
+  border: 2px solid #E6E0BC;
   padding: 5px 10px;
+  margin-bottom: 10px;
 }
 
 .navButtons {
   margin: 20px auto;
+}
+
+@media only screen and (min-width: 768px){
+  #AddData-Form { 
+    width: 700px;
+  }
 }

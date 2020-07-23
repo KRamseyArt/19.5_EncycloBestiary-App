@@ -66,9 +66,6 @@ export class Content extends Component {
       user: user
     })
   }
-  addUser = (user) => {
-    console.log(user);
-  }
 
   setBestiaries = (bestiaries) => {
     this.setState({
@@ -76,7 +73,6 @@ export class Content extends Component {
     })
   }
   addBestiary = (bestiary) => {
-    console.log(bestiary)
     this.setState({
       bestiaries: [...this.state.bestiaries, bestiary]
     })
@@ -111,7 +107,6 @@ export class Content extends Component {
     })
   }
   addData = (data) => {
-    console.log(data);
     this.setState({
       data: [...this.state.data, data]
     })
@@ -140,16 +135,11 @@ export class Content extends Component {
       const ENDPOINT = Config.API_ENDPOINT;
     
       Promise.all([
-        // fetch(`${ENDPOINT}/users/1`),
-        // fetch(`${ENDPOINT}/users/1/bestiaries`),
-        // fetch(`${ENDPOINT}/users/1/data`),
         fetch(`${ENDPOINT}/users/${TokenService.readJwtToken().user_id}`),
         fetch(`${ENDPOINT}/users/${TokenService.readJwtToken().user_id}/bestiaries`),
         fetch(`${ENDPOINT}/users/${TokenService.readJwtToken().user_id}/data`),
       ])
         .then(([userRes, bestiariesRes, dataRes]) => {
-          console.log([userRes, bestiariesRes, dataRes])
-
           if(!userRes.ok){
             return userRes.json().then(e => Promise.reject(e))
           }
@@ -159,11 +149,9 @@ export class Content extends Component {
           if(!dataRes.ok){
             return dataRes.json().then(e => Promise.reject(e))
           }
-          console.log([userRes, bestiariesRes, dataRes]);
           return Promise.all([userRes.json(), bestiariesRes.json(), dataRes.json()]);
         })
         .then(([user, bestiaries, data]) => {
-          console.log([user, bestiaries, data]);
           this.setUser(user)
           this.setBestiaries(bestiaries)
           this.setData(data)
@@ -185,7 +173,6 @@ export class Content extends Component {
       activeBestiaryID: state.activeBestiaryID,
       data: state.data,
       setUser: this.setUser,
-      addUser: this.addUser,
       setBestiaries: this.setBestiaries,
       addBestiary: this.addBestiary,
       deleteBestiary: this.deleteBestiary,

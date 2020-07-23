@@ -169,11 +169,16 @@ export class AddBestiaryForm extends Component {
                 Back
               </button>
             </Link>
-            <input
+            <button
               type="submit"
-              value="Submit"
               className="btn"
-            />
+              disabled={
+                this.validateBestiaryName() ||
+                this.validateBestiaryDescription()
+              }
+            >
+              Submit
+            </button>
           </div>
         </fieldset>
       </form>

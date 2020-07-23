@@ -8,7 +8,6 @@ export class DataListHeader extends Component {
   static contextType = Context;
 
   render() {
-    console.log(this.props)
     return (
       <section id="DataHeader">
         <h3 id="DataTitle" className="heading-text">Bestiary Data:</h3>

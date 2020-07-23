@@ -14,11 +14,9 @@ export class ProfilePage extends Component {
   }
   
   render() {
-    console.log(this.context)
     const user = this.context.userID;
     const bestiaries = this.context.bestiaries;
     const data = this.context.data;
-    console.log([user, bestiaries, data])
 
     return (
       <div id="ProfilePage">

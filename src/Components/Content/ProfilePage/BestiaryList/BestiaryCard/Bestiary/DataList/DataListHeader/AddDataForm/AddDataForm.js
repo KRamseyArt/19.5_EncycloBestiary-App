@@ -106,11 +106,9 @@ export class AddDataForm extends Component {
   }
 
   render() {
-    console.log(this.context);
     const thisBestiary = this.context.bestiaries.filter(b =>{
       return b.id === this.context.activeBestiaryID;
     })[0] || "";
-    console.log(thisBestiary)
 
     const nameError = this.validateDataName();
     const descriptionError = this.validateDataDescription();

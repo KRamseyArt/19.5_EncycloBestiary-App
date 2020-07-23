@@ -24,8 +24,6 @@ export class BestiaryFolder extends Component {
   render() {
     const bestiary = this.props.bestiary;
     
-    console.log(this.context);
-
     return (
       <div className="Bestiary-Card">
         <div className="Bestiary-Card-Header">
@@ -35,30 +33,33 @@ export class BestiaryFolder extends Component {
             <h4>({this.countData(bestiary.id)})</h4>
           </div>
         </div>
-        <p>{bestiary.bestiary_description}</p>
-        <ul className="Bestiary-Settings">
-          <li>
-            <Link
-              to={`/users/${this.context.user.id}/bestiaries/${bestiary.id}`}
-              onClick={() => this.context.setActiveBestiaryID(bestiary.id)}
-            >
+        <div className="Bestiary-Card-Inner">
+          <p>{bestiary.bestiary_description}</p>
+          <ul className="Bestiary-Settings">
+            <li>
+              <Link
+                to={`/users/${this.context.user.id}/bestiaries/${bestiary.id}`}
+                onClick={() => this.context.setActiveBestiaryID(bestiary.id)}
+              >
+                <button
+                  className="btn"
+                >
+                  Edit
+                </button>
+              </Link>
+              
+            </li>
+            <li>
               <button
                 className="btn"
+                onClick={() => this.context.deleteBestiary(bestiary.id)}
               >
-                Edit
+                Delete
               </button>
-            </Link>
-            
-          </li>
-          <li>
-            <button
-              className="btn"
-              onClick={() => this.context.deleteBestiary(bestiary.id)}
-            >
-              Delete
-            </button>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
+        
       </div>
     )
   }

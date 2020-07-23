@@ -16,7 +16,7 @@ export class Footer extends Component {
               >
                 <img
                   className="social-img"
-                  src="https://drive.google.com/thumbnail?id=1G_P7_pqm_IyfZUa2J6vpcu1U_-qFGVby"
+                  src={require("../../imgs/CustomIcons_GitHub.png")}
                   alt="Github Link"
                 />
               </a>
@@ -31,7 +31,7 @@ export class Footer extends Component {
               >
                 <img
                   className="social-img"
-                  src="https://drive.google.com/thumbnail?id=1NSgJNRt33WLoY2yTY0FCcxiFFFtS8ETy"
+                  src={require("../../imgs/CustomIcons_LinkedIn.png")}
                   alt="LinkedIn Link"  
                 />
               </a>
@@ -46,7 +46,7 @@ export class Footer extends Component {
               >
                 <img
                   className="social-img"
-                  src="https://drive.google.com/thumbnail?id=1hvJRn4mWx7L_FeTzPZksQMMAmVwuQrpj"
+                  src={require("../../imgs/CustomIcons_gMail.png")}
                   alt="Email Link"  
                 />
               </a>

@@ -1,23 +1,24 @@
 #Home-Content{
   padding-bottom: 40px;
   background: #FEFAE0;
-  min-height: calc(100vh - 190px);
+  min-height: calc(100vh - 290px);
 }
 
 #Home-Content section:nth-child(even) {
-  background: #DDA15E;
+  background: #e6e0bc;
 }
 
 #Home-Content section {
   /* margin: 10px auto; */
   padding: 20px;
+  line-height: 2.5rem;
 }
 #Home-Content section h2 {
   margin-bottom: 20px;
 }
 
 #demo-details {
-  background: #4C3B4D;
+  background: #59B60D;
   color: white;
   padding: 10px 20px;
   border-radius: 50px;
@@ -27,11 +28,11 @@
 
 #Home-Content a {
   text-decoration: none;
-  color: #5BC3EB;
+  color: #59B60D;
   font-weight: bold;
 }
 #Home-Content a:hover {
-  background: #5BC3EB;
+  background: #B3DF15;
   color: white;
   border-radius: 5px;
 }

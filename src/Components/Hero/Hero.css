@@ -1,9 +1,28 @@
 #Hero {
-  background: #4C3B4D;
-  padding: 20px;
+  background: url("../../imgs/EncycloBestiary_Hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  height: 200px;
+  /* background: blue; */
+  /* padding: 50px 20px; */
   color: white;
 }
 
-#Hero h1 {
+#TitleSect {
+  background: #020800a9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 15px;
+  width: 350px;
+}
+#TitleSect:hover{
+  opacity: .3;
+}
+#TitleSect h1 {
   font-size: 36px;
 }

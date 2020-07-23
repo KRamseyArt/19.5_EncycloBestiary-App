@@ -36,3 +36,12 @@
   color: white;
   border-radius: 5px;
 }
+
+@media only screen and (min-width:768px){
+  #Home-Content{
+    width: 700px;
+  }
+  #Home-Content section {
+    padding: 20px 60px;
+  }
+}

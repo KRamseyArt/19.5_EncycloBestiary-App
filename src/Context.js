@@ -13,6 +13,6 @@ const Context = React.createContext({
   addData: () => {},
   deleteData: () => {},
   handleSuccessfulLogin: () =>{}
-})
+});
 
 export default Context;

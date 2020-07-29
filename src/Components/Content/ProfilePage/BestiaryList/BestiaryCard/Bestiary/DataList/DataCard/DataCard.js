@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import './DataCard.css'
-import Context from '../../../../../../../../Context'
+import './DataCard.css';
+import Context from '../../../../../../../../Context';
 
 export class DataCard extends Component {
   static contextType = Context;
@@ -15,7 +15,7 @@ export class DataCard extends Component {
   }
   
   render() {
-    const data = this.props.data ;
+    const data = this.props.data;
     return (
       <li className="DataCard">
         <div className="DataInfo">
@@ -31,8 +31,8 @@ export class DataCard extends Component {
           <p>{data.data_description}</p>
         </div>
       </li>
-    )
+    );
   }
 }
 
-export default DataCard
+export default DataCard;

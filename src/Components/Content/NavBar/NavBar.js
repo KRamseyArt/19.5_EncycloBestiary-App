@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './NavBar.css';
-import TokenService from '../../../Services/token-service'
+import TokenService from '../../../Services/token-service';
 
 export class NavBar extends Component {
   renderAccountLink() {
@@ -16,8 +16,9 @@ export class NavBar extends Component {
           </button>
         </Link>
       </div>
-    )
+    );
   }
+
   renderLoginLink() {
     return (
       <div id="AccountNav login">
@@ -33,7 +34,7 @@ export class NavBar extends Component {
           </button>
         </Link>
       </div>
-    )
+    );
   }
   
   render() {
@@ -50,8 +51,8 @@ export class NavBar extends Component {
           </Link>
         </div>
       </nav>
-    )
+    );
   }
 }
 
-export default NavBar
+export default NavBar;

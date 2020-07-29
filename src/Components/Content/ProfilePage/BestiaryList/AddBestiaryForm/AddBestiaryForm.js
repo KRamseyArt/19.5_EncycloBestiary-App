@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import './AddBestiaryForm.css'
-import Config from '../../../../../Config'
+import './AddBestiaryForm.css';
+import Config from '../../../../../Config';
 
-import Context from '../../../../../Context'
-import ValidationError from '../../../ValidationError/ValidationError'
-import TokenService from '../../../../../Services/token-service'
+import Context from '../../../../../Context';
+import ValidationError from '../../../ValidationError/ValidationError';
+import TokenService from '../../../../../Services/token-service';
 
 export class AddBestiaryForm extends Component {
   static contextType = Context;
@@ -22,7 +22,7 @@ export class AddBestiaryForm extends Component {
         value: "",
         touched: false
       }
-    }
+    };
   }
 
   handleSubmit(e) {
@@ -43,25 +43,25 @@ export class AddBestiaryForm extends Component {
     })
       .then(res => {
         if (!res.ok){
-          return res.json().then(e => Promise.reject(e))
+          return res.json().then(e => Promise.reject(e));
         }
 
-        return res.json()
+        return res.json();
       })
       .then(res => {
         this.context.addBestiary(res);
         this.onSubmitSuccess();
       })
       .catch(error => {
-        console.error(error)
-      })
+        console.error(error);
+      });
     
   }
 
   onSubmitSuccess = () => {
     const {history} = this.props;
-    const destination = `/users/${TokenService.readJwtToken().user_id}/bestiaries`
-    history.push(destination)
+    const destination = `/users/${TokenService.readJwtToken().user_id}/bestiaries`;
+    history.push(destination);
   }
 
   updateBestiaryName(name){
@@ -78,7 +78,7 @@ export class AddBestiaryForm extends Component {
         value: description,
         touched: true
       }
-    })
+    });
   }
 
   validateBestiaryName() {
@@ -88,7 +88,7 @@ export class AddBestiaryForm extends Component {
     if (bestiaryName.length === 0){
       return 'Bestiary Name is required';
     } else if (bestiaryName.length < minLength){
-      return `Bestiary Name must be at least ${minLength} characters long`
+      return `Bestiary Name must be at least ${minLength} characters long`;
     }
   }
 
@@ -99,7 +99,7 @@ export class AddBestiaryForm extends Component {
     if (bestiaryDescription.length === 0){
       return 'Description is required';
     } else if (bestiaryDescription.length < minLength){
-      return `Description must be at least ${minLength} characters in length`
+      return `Description must be at least ${minLength} characters in length`;
     }
   }
 
@@ -186,4 +186,4 @@ export class AddBestiaryForm extends Component {
   }
 }
 
-export default AddBestiaryForm
+export default AddBestiaryForm;

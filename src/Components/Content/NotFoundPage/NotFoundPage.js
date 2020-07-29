@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import './NotFoundPage.css'
+import './NotFoundPage.css';
 
 export class NotFoundPage extends Component {
   render() {
@@ -22,8 +22,8 @@ export class NotFoundPage extends Component {
           </button>
         </Link>
       </div>
-    )
+    );
   }
 }
 
-export default NotFoundPage
+export default NotFoundPage;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 import './DataList.css';
 import DataCard from './DataCard/DataCard';
@@ -6,7 +6,7 @@ import DataCard from './DataCard/DataCard';
 export class DataList extends Component {
   static defaultProps = {
     bestiaryData: []
-  }
+  };
 
   render() {
     const bestiaryData = this.props.bestiaryData;
@@ -24,8 +24,8 @@ export class DataList extends Component {
           })}
         </ul>
       </div>
-    )
+    );
   }
 }
 
-export default DataList
+export default DataList;

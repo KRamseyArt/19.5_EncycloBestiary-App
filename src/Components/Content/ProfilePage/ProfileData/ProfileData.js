@@ -15,10 +15,10 @@ export class ProfileData extends Component {
   
   handleLogout = () => {
     this.context.setUser(null);
-    TokenService.clearAuthToken()
+    TokenService.clearAuthToken();
 
-    TokenService.clearCallbackBeforeExpiry()
-    IdleService.unRegisterIdleResets()
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
   }
 
   renderProfileImg = () => {
@@ -28,7 +28,7 @@ export class ProfileData extends Component {
         src="https://via.placeholder.com/150?text=Profile+Pic"
         alt="User Avatar"  
       />
-    )
+    );
   }
 
   render() {
@@ -62,8 +62,8 @@ export class ProfileData extends Component {
           </li>
         </ul>
       </nav>
-    )
+    );
   }
 }
 
-export default ProfileData
+export default ProfileData;

@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import './BestiaryCard.css'
+import './BestiaryCard.css';
 import Context from '../../../../../Context';
 
 export class BestiaryFolder extends Component {
@@ -17,7 +17,7 @@ export class BestiaryFolder extends Component {
       if (d.bestiary_id === bestiaryId){
         count++;
       }
-    })
+    });
     return count;
   }
 
@@ -61,8 +61,8 @@ export class BestiaryFolder extends Component {
         </div>
         
       </div>
-    )
+    );
   }
 }
 
-export default BestiaryFolder
+export default BestiaryFolder;

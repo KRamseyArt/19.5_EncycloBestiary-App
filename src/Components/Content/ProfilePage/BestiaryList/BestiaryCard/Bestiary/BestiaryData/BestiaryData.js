@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import './BestiaryData.css'
+import './BestiaryData.css';
 import Context from '../../../../../../../Context';
 import TokenService from '../../../../../../../Services/token-service';
 
@@ -10,7 +10,7 @@ export class BestiaryData extends Component {
 
   render() {
     const bestiary = this.context.bestiaries.filter(b => b.id.toString() === this.props.bestiaryId)[0]
-      || {bestiary_name: "Oops...", bestiary_description: "It seems the bestiary you're looking for does not exist. Please try again!"}
+      || {bestiary_name: "Oops...", bestiary_description: "It seems the bestiary you're looking for does not exist. Please try again!"};
     
     return (
       <nav id="Bestiary-Data">
@@ -40,8 +40,8 @@ export class BestiaryData extends Component {
           </li>
         </ul>
       </nav>
-    )
+    );
   }
 }
 
-export default BestiaryData
+export default BestiaryData;

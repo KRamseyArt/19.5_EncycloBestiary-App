@@ -1,5 +1,5 @@
-import TokenService from './token-service'
-import Config from '../Config'
+import TokenService from './token-service';
+import Config from '../Config';
 
 const BestiaryApiService = {
   getBestiaries(user_id) {
@@ -12,7 +12,7 @@ const BestiaryApiService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      );
   },
   getBestiary(bestiaryId) {
     return fetch(`${Config.API_ENDPOINT}/bestiaries/${bestiaryId}`, {
@@ -24,7 +24,7 @@ const BestiaryApiService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      );
   },
   getBestiaryData(bestiaryId) {
     return fetch(`${Config.API_ENDPOINT}/bestiaries/${bestiaryId}/data`, {
@@ -36,7 +36,7 @@ const BestiaryApiService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      );
   },
   postData(bestiaryId, title, content) {
     return fetch(`${Config.API_ENDPOINT}/data`, {
@@ -55,8 +55,8 @@ const BestiaryApiService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      );
   }
 }
 
-export default BestiaryApiService
+export default BestiaryApiService;

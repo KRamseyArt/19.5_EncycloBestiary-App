@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-import './DataListHeader.css'
-import Context from '../../../../../../../../Context'
+import './DataListHeader.css';
+import Context from '../../../../../../../../Context';
 
 export class DataListHeader extends Component {
   static contextType = Context;
@@ -22,8 +22,8 @@ export class DataListHeader extends Component {
         </Link>
         
       </section>
-    )
+    );
   }
 }
 
-export default DataListHeader
+export default DataListHeader;

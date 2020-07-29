@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import './BestiaryList.css'
-import Context from '../../../../Context'
-import BestiaryCard from './BestiaryCard/BestiaryCard'
+import './BestiaryList.css';
+import Context from '../../../../Context';
+import BestiaryCard from './BestiaryCard/BestiaryCard';
 
 export class BestiaryList extends Component {
   static contextType = Context;
@@ -22,8 +22,8 @@ export class BestiaryList extends Component {
           )}
         </section>
       </div>
-    )
+    );
   }
 }
 
-export default BestiaryList
+export default BestiaryList;

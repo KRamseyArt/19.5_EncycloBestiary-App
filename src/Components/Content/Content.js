@@ -15,8 +15,8 @@ import AddDataForm from './ProfilePage/BestiaryList/BestiaryCard/Bestiary/DataLi
 import AddBestiaryForm from './ProfilePage/BestiaryList/AddBestiaryForm/AddBestiaryForm';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 
-import IdleService from '../../Services/idle-service'
-import TokenService from '../../Services/token-service'
+import IdleService from '../../Services/idle-service';
+import TokenService from '../../Services/token-service';
 
 
 export class Content extends Component {
@@ -30,52 +30,48 @@ export class Content extends Component {
   }
 
   static getDerivedStateFromError(error) {
-    console.error(error)
-    return { hasError: true }
+    // console.error(error);
+    return { hasError: true };
   }
 
   componentDidMount(){
-    IdleService.setIdleCallback(this.logoutFromIdle)
+    IdleService.setIdleCallback(this.logoutFromIdle);
 
     if (TokenService.hasAuthToken()){
-      IdleService.registerIdleTimerResets()
-      this.handleSuccessfulLogin()
+      IdleService.registerIdleTimerResets();
+      this.handleSuccessfulLogin();
     }
-
-    // TokenService.queueCallbackBeforeExpiry(() => {
-    //   AuthApiService.postRefreshToken()
-    // })
   }
 
   componentWillUnmount() {
-    IdleService.unRegisterIdleResets()
-    TokenService.clearCallbackBeforeExpiry()
+    IdleService.unRegisterIdleResets();
+    TokenService.clearCallbackBeforeExpiry();
   }
 
   logoutFromIdle = () => {
-    TokenService.clearAuthToken()
-    TokenService.clearCallbackBeforeExpiry()
-    IdleService.unRegisterIdleResets()
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
 
-    this.forceUpdate()
+    this.forceUpdate();
   }
 
   setUser = (user) => {
     this.setState({
       userToken: user ? TokenService.getAuthToken() : TokenService.clearAuthToken(),
       user: user
-    })
+    });
   }
 
   setBestiaries = (bestiaries) => {
     this.setState({
       bestiaries
-    })
+    });
   }
   addBestiary = (bestiary) => {
     this.setState({
       bestiaries: [...this.state.bestiaries, bestiary]
-    })
+    });
   }
   deleteBestiary = (bestiaryId) => {
     fetch (`${Config.API_ENDPOINT}/bestiaries/${bestiaryId}`, {
@@ -89,27 +85,27 @@ export class Content extends Component {
         this.setState({
           bestiaries: this.state.bestiaries.filter(b =>
             b.id !== bestiaryId)
-        })
+        });
       })
       .catch(error => {
-        console.error(error)
-      })
+        console.error(error);
+      });
   }
   setActiveBestiaryID = (bestiaryId) => {
     this.setState({
       activeBestiaryID: bestiaryId
-    })
+    });
   }
 
   setData = (data) => {
     this.setState({
       data
-    })
+    });
   }
   addData = (data) => {
     this.setState({
       data: [...this.state.data, data]
-    })
+    });
   }
   deleteData = (dataId) => {
     fetch (`${Config.API_ENDPOINT}/data/${dataId}`, {
@@ -123,11 +119,11 @@ export class Content extends Component {
         this.setState({
           data: this.state.data.filter(d =>
             d.id !== dataId)
-        })
+        });
       })
       .catch(error => {
-        console.error(error)
-      })
+        console.error(error);
+      });
   }
 
   handleSuccessfulLogin = () => {
@@ -141,26 +137,25 @@ export class Content extends Component {
       ])
         .then(([userRes, bestiariesRes, dataRes]) => {
           if(!userRes.ok){
-            return userRes.json().then(e => Promise.reject(e))
+            return userRes.json().then(e => Promise.reject(e));
           }
           if(!bestiariesRes.ok){
-            return bestiariesRes.json().then(e => Promise.reject(e))
+            return bestiariesRes.json().then(e => Promise.reject(e));
           }
           if(!dataRes.ok){
-            return dataRes.json().then(e => Promise.reject(e))
+            return dataRes.json().then(e => Promise.reject(e));
           }
           return Promise.all([userRes.json(), bestiariesRes.json(), dataRes.json()]);
         })
         .then(([user, bestiaries, data]) => {
-          this.setUser(user)
-          this.setBestiaries(bestiaries)
-          this.setData(data)
+          this.setUser(user);
+          this.setBestiaries(bestiaries);
+          this.setData(data);
         })
         .catch(error => {
           console.error({error});
-        })
-    }
-    
+        });
+    } 
   }
   
   render() {
@@ -181,7 +176,7 @@ export class Content extends Component {
       addData: this.addData,
       deleteData: this.deleteData,
       handleSuccessfulLogin: this.handleSuccessfulLogin
-    }
+    };
     return (
       <Context.Provider
         value={contextValue}
@@ -230,4 +225,4 @@ export class Content extends Component {
   }
 }
 
-export default Content
+export default Content;

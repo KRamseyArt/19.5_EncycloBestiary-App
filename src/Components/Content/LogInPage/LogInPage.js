@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import './LogInPage.css'
+import './LogInPage.css';
 import Context from '../../../Context';
-import AuthApiService from '../../../Services/auth-api-service'
-import TokenService from '../../../Services/token-service'
+import AuthApiService from '../../../Services/auth-api-service';
+import TokenService from '../../../Services/token-service';
 
 export class LogInPage extends Component {
   static contextType = Context;
@@ -15,34 +15,33 @@ export class LogInPage extends Component {
     }
   }
 
-  state = { error: null }
+  state = { error: null };
 
   handleSubmitJwtAuth = e => {
-    e.preventDefault()
+    e.preventDefault();
 
-    this.setState({ error: null })
-    const { username, password } = e.target
+    this.setState({ error: null });
+    const { username, password } = e.target;
 
     AuthApiService.postLogin ({
       username: username.value,
       password: password.value,
     })
       .then(res => {
-        username.value=""
-        password.value=""
-        this.context.setUser(res.authToken)
-        this.onLoginSuccess()
+        username.value="";
+        password.value="";
+        this.context.setUser(res.authToken);
+        this.onLoginSuccess();
       })
       .catch(res => {
-        console.error(res)
-        this.setState({ error: res.error })
+        this.setState({ error: res.error });
       })
   }
 
   onLoginSuccess = () => {
-    const { history } = this.props
-    const destination = `/users/${TokenService.readJwtToken().user_id}`
-    history.push(destination)
+    const { history } = this.props;
+    const destination = `/users/${TokenService.readJwtToken().user_id}`;
+    history.push(destination);
   }
   
   render() {  
@@ -54,8 +53,6 @@ export class LogInPage extends Component {
         <fieldset>
           <legend>Log-In</legend>
           <p>Sign into your existing account</p>
-          
-          <br/>
           
           <label htmlFor="username">Username:</label>
           <input
@@ -77,7 +74,12 @@ export class LogInPage extends Component {
             required
           />
 
-          <br/>
+          <div id="demo-details">
+            <h2 className="heading-text">Try it Out!</h2>
+            <p> Username: 'Demo'</p>
+            <p>Password: 'Testing123!'</p>
+          </div>
+
           <div className="navButtons">
             <Link
               to={`/`}
@@ -100,4 +102,4 @@ export class LogInPage extends Component {
   }
 }
 
-export default LogInPage
+export default LogInPage;

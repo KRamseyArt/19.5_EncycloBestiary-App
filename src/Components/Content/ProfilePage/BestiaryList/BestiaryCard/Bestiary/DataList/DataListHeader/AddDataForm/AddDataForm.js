@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import './AddDataForm.css'
-import Config from '../../../../../../../../../Config'
+import './AddDataForm.css';
+import Config from '../../../../../../../../../Config';
 
-import Context from '../../../../../../../../../Context'
-import ValidationError from '../../../../../../../ValidationError/ValidationError'
-import TokenService from '../../../../../../../../../Services/token-service'
+import Context from '../../../../../../../../../Context';
+import ValidationError from '../../../../../../../ValidationError/ValidationError';
+import TokenService from '../../../../../../../../../Services/token-service';
 
 export class AddDataForm extends Component {
   static contextType = Context;
@@ -22,7 +22,7 @@ export class AddDataForm extends Component {
         value: "",
         touched: false
       }
-    }
+    };
   }
 
   handleSubmit(e) {
@@ -47,24 +47,24 @@ export class AddDataForm extends Component {
     })
       .then(res => {
         if (!res.ok){
-          return res.json().then(e => Promise.reject(e))
+          return res.json().then(e => Promise.reject(e));
         }
 
-        return res.json()
+        return res.json();
       })
       .then(res => {
         this.context.addData(res);
         this.onSubmitSuccess();
       })
       .catch(error => {
-        console.error(error)
-      })
+        console.error(error);
+      });
   }
 
   onSubmitSuccess = () => {
     const {history} = this.props;
-    const destination = `/users/${TokenService.readJwtToken().user_id}/bestiaries/${this.props.match.params.bestiaryId}`
-    history.push(destination)
+    const destination = `/users/${TokenService.readJwtToken().user_id}/bestiaries/${this.props.match.params.bestiaryId}`;
+    history.push(destination);
   }
 
   updateDataName(name){
@@ -91,7 +91,7 @@ export class AddDataForm extends Component {
     if (dataName.length === 0){
       return 'Data Name is required';
     } else if (dataName.length < minLength){
-      return `Data Name must be at least ${minLength} characters long`
+      return `Data Name must be at least ${minLength} characters long`;
     }
   }
   validateDataDescription(){
@@ -101,7 +101,7 @@ export class AddDataForm extends Component {
     if (dataDescription.length === 0){
       return 'Description is required';
     } else if (dataDescription.length < minLength){
-      return `Description must be at least ${minLength} characters in length`
+      return `Description must be at least ${minLength} characters in length`;
     }
   }
 
@@ -190,4 +190,4 @@ export class AddDataForm extends Component {
   }
 }
 
-export default AddDataForm
+export default AddDataForm;

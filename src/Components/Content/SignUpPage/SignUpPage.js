@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import AuthApiService from '../../../Services/auth-api-service'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import AuthApiService from '../../../Services/auth-api-service';
 
-import './SignUpPage.css'
-import ValidationError from '../ValidationError/ValidationError'
+import './SignUpPage.css';
+import ValidationError from '../ValidationError/ValidationError';
 
 export class SignUpPage extends Component {
   static defaultProps = {
@@ -14,20 +14,20 @@ export class SignUpPage extends Component {
 
   state = {
     error: null
-  }
+  };
 
   handleRegistrationSuccess = () => {
-    const { history } = this.props
-    history.push('/log-in')
+    const { history } = this.props;
+    history.push('/log-in');
   }
 
   handleSubmit = e => {
-    e.preventDefault()
-    const { username, email, password, verify_password } = e.target
+    e.preventDefault();
+    const { username, email, password, verify_password } = e.target;
 
-    this.setState({ error: null })
+    this.setState({ error: null });
     if (password !== verify_password){
-      this.setState({ error: 'Passwords do not match' })
+      this.setState({ error: 'Passwords do not match' });
     }
 
     AuthApiService.postUser({
@@ -36,21 +36,21 @@ export class SignUpPage extends Component {
       email: email.value,
     })
       .then(user => {
-        username.value = ""
-        email.value = ""
-        password.value = ""
-        verify_password.value = ""
-        this.handleRegistrationSuccess()
+        username.value = "";
+        email.value = "";
+        password.value = "";
+        verify_password.value = "";
+        this.handleRegistrationSuccess();
       })
       .catch(res => {
         this.setState({
           error: res.error
-        })
-      })
+        });
+      });
   }
   
   render() {
-    const { error } = this.state
+    const { error } = this.state;
 
     return (
       <form
@@ -129,8 +129,8 @@ export class SignUpPage extends Component {
           
         </fieldset>
       </form>
-    )
+    );
   }
 }
 
-export default SignUpPage
+export default SignUpPage;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 import './Footer.css';
 
@@ -57,8 +57,8 @@ export class Footer extends Component {
           <p>© Kalin Ramsey 2020. All rights reserved.</p>
         </div>
       </footer>
-    )
+    );
   }
 }
 
-export default Footer
+export default Footer;

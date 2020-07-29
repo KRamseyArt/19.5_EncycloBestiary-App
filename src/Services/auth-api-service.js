@@ -1,6 +1,6 @@
-import Config from '../Config'
-import TokenService from './token-service'
-import IdleService from './idle-service'
+import Config from '../Config';
+import TokenService from './token-service';
+import IdleService from './idle-service';
 
 const AuthApiService = {
   postUser(user) {
@@ -15,7 +15,7 @@ const AuthApiService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      );
   },
   postLogin({ username, password }) {
     return fetch(`${Config.API_ENDPOINT}/auth/log-in`, {
@@ -42,8 +42,8 @@ const AuthApiService = {
         TokenService.queueCallbackBeforeExpiry(() => {
           AuthApiService.postRefreshToken()
         })
-        return res
-      })
+        return res;
+      });
   },
   postRefreshToken() {
     return fetch(`${Config.API_ENDPOINT}/auth/refresh`, {
@@ -63,16 +63,16 @@ const AuthApiService = {
           - we don't need to queue the idle timers again as the user is already logged in
           - we'll catch the error here as this refresh is happening behind the scenes
         */
-        TokenService.saveAuthToken(res.authToken)
+        TokenService.saveAuthToken(res.authToken);
         TokenService.queueCallbackBeforeExpiry(() => {
-          AuthApiService.postRefreshToken()
+          AuthApiService.postRefreshToken();
         })
-        return res
+        return res;
       })
       .catch(err => {
-        console.error(err)
-      })
+        console.error(err);
+      });
   },
 }
 
-export default AuthApiService
+export default AuthApiService;

@@ -20,6 +20,7 @@
 ![View Bestiary screenshot](./screenshots/6_ViewBestiary.jpg)
 
 # API Documentation:
+- [API Repo](https://github.com/KRamseyArt/19.6_EncycloBestiary-API)
 - [Live API](https://encyclo-bestiary-app.herokuapp.com/)
 #### Users
 - (/)
